@@ -10,6 +10,8 @@ namespace movies_catalogue.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Surname { get; set; }  
+        public string Surname { get; set; } 
+        [Required]
+        public Role Role { get; set; }
     }
 }
