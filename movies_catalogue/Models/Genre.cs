@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace movies_catalogue.Models
 {
@@ -8,5 +9,6 @@ namespace movies_catalogue.Models
         public int ID { get; set; }
         [Required]
         public string GenreName { get; set; }
+        public ICollection<MoviesInGenres> MoviesInGenres { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace movies_catalogue.Models
         public DateTime ReleaseDate { get; set; }
         public double Rating { get; set; }
         public ICollection<MoviesInFavorites> MoviesInFavorites { get; set; }
+        public ICollection<MoviesInGenres> MoviesInGenres { get; set; }
 
         public string TimeLeft()
         {
