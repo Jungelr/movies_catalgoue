@@ -166,3 +166,5 @@ C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Edit.cshtml.g.cs
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs

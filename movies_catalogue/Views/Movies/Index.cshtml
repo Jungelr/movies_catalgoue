@@ -1,58 +1,56 @@
-﻿@model IEnumerable<movies_catalogue.Models.Movie>
+﻿@model List<movies_catalogue.Models.Movie>
 
 @{
     ViewData["Title"] = "All Movies";
 }
 
-<h1>Index</h1>
+<div class="container">
+<div class="row mt-3 mb-3">
+    <div class="col-8">
+        <h1>All Movies</h1>
+    </div>
 
-<p>
-    <a asp-action="Create">Add a Movie</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImdbLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PictureURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImdbLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PictureURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="col-4">
+        <p>
+            <a asp-action="Create" class="btn btn-info float-right">Add a Movie</a>
+        </p>
+    </div>
+</div>
+
+
+       @for (int i = 0; i < Model.Count; i++)
+       {
+           var item = Model[i];
+
+           if(i % 3 == 0)
+           {
+               @:<div class="row">
+           }
+
+        <div class="col-md-3 m-4">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img class="card-img-top" src="@item.PictureURL" style="height: 50%;" alt="Image for movie!">
+
+                <div class="card-body">
+                    <h3 class="card-title text-center"><a href="@item.ImdbLink" target="_blank">@item.MovieName</a></h3>
+                    <p class="card-text">
+                        <h6>Release Date: <span class="font-weight-light">@item.ReleaseDate</span></h6>
+                        <h6>@item.TimeLeft()</h6>
+                    </p>
+                    <h5>Rating: @item.Rating</h5>
+                </div>
+
+                <div class="card-footer">
+                    <!-- <a asp-controller="Products" asp-action="AddProductToCard" asp-route-id="@item.ID" class="btn btn-info">Add to Favorites</a> -->
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-secondary">Edit</a>
+                </div>
+            </div>
+        </div>
+
+
+           if(i % 3 == 2)
+           {
+               @:</div>
+           }
+       }
+</div>
