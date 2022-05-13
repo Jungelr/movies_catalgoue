@@ -17,6 +17,7 @@ namespace movies_catalogue.Models
         public double Rating { get; set; }
         public ICollection<MoviesInFavorites> MoviesInFavorites { get; set; }
         public ICollection<MoviesInGenres> MoviesInGenres { get; set; }
+        public ICollection<PeopleInMovies> PeopleInMovies { get; set; }
 
         public string TimeLeft()
         {

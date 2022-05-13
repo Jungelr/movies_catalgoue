@@ -34,7 +34,7 @@ namespace movies_catalogue.Controllers
             }
 
             var person = await _context.People
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.PersonId == id);
             if (person == null)
             {
                 return NotFound();
