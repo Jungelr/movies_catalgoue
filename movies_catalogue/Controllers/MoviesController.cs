@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,15 +26,25 @@ namespace movies_catalogue.Controllers
             return View(await _context.Movies.ToListAsync());
         }
 
-        public IActionResult AddToFavorites(int MovieId, int FavoriteId)
+        public ActionResult AddToFavorites(int movieId)
         {
-            var movie = _context.Movies.Where(m => m.MovieId == MovieId).FirstOrDefault();
-            var favorite = _context.Favorites.Where(m => m.FavoriteId == FavoriteId).FirstOrDefault();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = _context.Users.Where(u => u.Id == userId)
+                .Include("UserFavorites.MoviesInFavorites")
+                .Include("UserFavorites.MoviesInFavorites.Movie")
+                .FirstOrDefault();
 
-            var movieInFavorites = new MoviesInFavorites();
-            movieInFavorites.MovieId = movie.MovieId;
-            movieInFavorites.FavoriteId = favorite.FavoriteId;
-            _context.MoviesInFavorites.Add(movieInFavorites);
+            var movie = _context.Movies.Where(m => m.MovieId == movieId).FirstOrDefault();
+
+            var userFavorites = user.UserFavorites;
+            var movieInFavorites = new MoviesInFavorites
+            {
+                Movie = movie,
+                MovieId = movie.MovieId,
+                Favorite = userFavorites,
+                FavoriteId = userFavorites.FavoriteId
+            };
+            _context.Add(movieInFavorites);
             _context.SaveChanges();
 
             return View(movie);

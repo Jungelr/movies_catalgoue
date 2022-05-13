@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="/Movies/AddToFavorites?MovieId=@item.MovieId&FavoriteId=1" class="btn btn-info">Add to Favorites</a>
+                    <a href="/Movies/AddToFavorites?movieId=@item.MovieId" class="btn btn-info">Add to Favorites</a>
                     <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.MovieId" class="btn btn-secondary">Edit</a>
                 </div>
             </div>
