@@ -12,7 +12,7 @@
 
     <div class="col-4">
         <p>
-            <a asp-action="Create" class="btn btn-info float-right">Add a Movie</a>
+            <a asp-action="Create" class="btn btn-outline-primary float-right">Add a new movie</a>
         </p>
     </div>
 </div>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <!-- <a asp-controller="Products" asp-action="AddProductToCard" asp-route-id="@item.MovieId" class="btn btn-info">Add to Favorites</a> -->
+                    <a href="/Movies/AddToFavorites?MovieId=@item.MovieId&FavoriteId=1" class="btn btn-info">Add to Favorites</a>
                     <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.MovieId" class="btn btn-secondary">Edit</a>
                 </div>
             </div>

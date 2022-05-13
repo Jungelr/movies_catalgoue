@@ -168,3 +168,9 @@ C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index.cshtml.g.cs
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
 C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\user\Projects\movies_catalogue\movies_catalogue\obj\Debug\netcoreapp3.1\Razor\Views\Movies\AddToFavorites.cshtml.g.cs
