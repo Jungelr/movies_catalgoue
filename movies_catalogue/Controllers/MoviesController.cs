@@ -34,7 +34,7 @@ namespace movies_catalogue.Controllers
             }
 
             var movie = await _context.Movies
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.MovieId == id);
             if (movie == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace movies_catalogue.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,MovieName,ImdbLink,PictureURL,ReleaseDate,Rating")] Movie movie)
         {
-            if (id != movie.ID)
+            if (id != movie.MovieId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace movies_catalogue.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.ID))
+                    if (!MovieExists(movie.MovieId))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace movies_catalogue.Controllers
 
         private bool MovieExists(int id)
         {
-            return _context.Movies.Any(e => e.ID == id);
+            return _context.Movies.Any(e => e.MovieId == id);
         }
     }
 }

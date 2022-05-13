@@ -6,7 +6,7 @@ namespace movies_catalogue.Models
     public class Movie
     {
         [Key]
-        public int ID { get; set; }
+        public int MovieId { get; set; }
         [Required]
         [Display(Name = "Name")]
         public string MovieName { get; set; }

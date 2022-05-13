@@ -12,6 +12,7 @@ namespace movies_catalogue.Data
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Favorite> Favorites { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
