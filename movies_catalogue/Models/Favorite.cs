@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace movies_catalogue.Models
 {
@@ -7,5 +8,7 @@ namespace movies_catalogue.Models
         [Key]
         public int FavoriteId { get; set; }
         public string ApplicationUserId { get; set; }
+        public ICollection<MoviesInFavorites> MoviesInFavorites { get; set; }
+
     }
 }

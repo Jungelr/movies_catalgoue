@@ -8,7 +8,7 @@ namespace movies_catalogue.Models
         public int FavoriteId { get; set; }
         [ForeignKey("MovieId")]
         public Movie Movie { get; set; }
-        [ForeignKey("FavoritesId")]
+        [ForeignKey("FavoriteId")]
         public Favorite Favorite { get; set; }
     }
 }

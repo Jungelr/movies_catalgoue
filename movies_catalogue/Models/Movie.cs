@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace movies_catalogue.Models
@@ -14,6 +15,7 @@ namespace movies_catalogue.Models
         public string PictureURL { get; set; }
         public DateTime ReleaseDate { get; set; }
         public double Rating { get; set; }
+        public ICollection<MoviesInFavorites> MoviesInFavorites { get; set; }
 
         public string TimeLeft()
         {
