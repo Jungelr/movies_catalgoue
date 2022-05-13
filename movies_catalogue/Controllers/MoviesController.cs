@@ -26,30 +26,6 @@ namespace movies_catalogue.Controllers
             return View(await _context.Movies.ToListAsync());
         }
 
-        public ActionResult AddToFavorites(int movieId)
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = _context.Users.Where(u => u.Id == userId)
-                .Include("UserFavorites.MoviesInFavorites")
-                .Include("UserFavorites.MoviesInFavorites.Movie")
-                .FirstOrDefault();
-
-            var movie = _context.Movies.Where(m => m.MovieId == movieId).FirstOrDefault();
-
-            var userFavorites = user.UserFavorites;
-            var movieInFavorites = new MoviesInFavorites
-            {
-                Movie = movie,
-                MovieId = movie.MovieId,
-                Favorite = userFavorites,
-                FavoriteId = userFavorites.FavoriteId
-            };
-            _context.Add(movieInFavorites);
-            _context.SaveChanges();
-
-            return View(movie);
-        }
-
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {

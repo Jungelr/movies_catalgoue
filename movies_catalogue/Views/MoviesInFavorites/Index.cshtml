@@ -1,0 +1,54 @@
+﻿@model List<movies_catalogue.Models.MoviesInFavorites>
+
+@{
+    ViewData["Title"] = "Favorite Movies";
+}
+
+<div class="container">
+<div class="row mt-3 mb-3">
+    <div class="col-8">
+        <h1>Favorite Movies</h1>
+    </div>
+</div>
+@if(Model.Count != 0){
+       @for (int i = 0; i < Model.Count; i++)
+       {
+           var item = Model[i];
+
+           if(i % 3 == 0)
+           {
+               @:<div class="row">
+           }
+
+        <div class="col-md-3 m-4">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img class="card-img-top" src="@item.Movie.PictureURL" style="height: 50%;" alt="Image for movie!">
+
+                <div class="card-body">
+                    <h3 class="card-title text-center"><a href="@item.Movie.ImdbLink" target="_blank">@item.Movie.MovieName</a></h3>
+                    <p class="card-text">
+                        <h6>Release Date: <span class="font-weight-light">@item.Movie.ReleaseDate</span></h6>
+                        <h6>@item.Movie.TimeLeft()</h6>
+                    </p>
+                    <h5>Rating: @item.Movie.Rating</h5>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/MoviesInFavorites/RemoveFromFavorites?movieId=@item.MovieId" class="btn btn-danger">Remove</a>
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.MovieId" class="btn btn-secondary">Edit</a>
+                </div>
+            </div>
+        </div>
+
+
+           if(i % 3 == 2)
+           {
+               @:</div>
+           }
+        }
+    } else
+    {
+        <div>No movies in favorites! <a asp-controller="Movies" asp-action="Index">Add a movie</a></div>
+    }
+</div>
+
