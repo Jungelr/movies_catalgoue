@@ -13,5 +13,7 @@ namespace movies_catalogue.Models.ViewModels
         public DateTime Timestamp { get; set; }
         public List<SelectListItem> Genres { get; set; }
         public string[] SelectedGenres { get; set; }
+        public List<SelectListItem> People { get; set; }
+        public string[] SelectedPeople { get; set; }
     }
 }
