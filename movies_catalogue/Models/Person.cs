@@ -1,5 +1,4 @@
-﻿using movies_catalogue.Models.Enumerations;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace movies_catalogue.Models
@@ -11,9 +10,6 @@ namespace movies_catalogue.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Surname { get; set; } 
-        [Required]
-        public Role Role { get; set; }
-        public ICollection<PeopleInMovies> PeopleInMovie { get; set; }
+        public string Surname { get; set; }
     }
 }

@@ -14,11 +14,9 @@ namespace movies_catalogue.Models
         public string ImdbLink { get; set; }
         public string PictureURL { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public double Rating { get; set; }
         public ICollection<MoviesInFavorites> MoviesInFavorites { get; set; }
-        public ICollection<MoviesInGenres> MoviesInGenres { get; set; }
-        public ICollection<PeopleInMovies> PeopleInMovies { get; set; }
-
+        public ICollection<MoviesInGenres> MoviesInGenres { get; set; } = new List<MoviesInGenres>();
+        public ICollection<PeopleInMovies> PeopleInMovies { get; set; } = new List<PeopleInMovies>();
         public string TimeLeft()
         {
             TimeSpan timespan = ReleaseDate.Subtract(DateTime.Now);
@@ -29,5 +27,6 @@ namespace movies_catalogue.Models
             else
                 return timespan.ToString(@"d\.h\:mm\:ss") + " time left until release!";
         }
+
     }
 }
